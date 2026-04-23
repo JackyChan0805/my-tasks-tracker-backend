@@ -8,6 +8,10 @@ CORS(app)
 tasks =[]
 task_id = 1
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Task Tracker API is running", "endpoints": ["/api/tasks"]})
+
 @app.route('/api/tasks', methods=['GET'])
 def get_tasks():
     return jsonify(tasks)
